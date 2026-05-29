@@ -20,10 +20,10 @@ Contains code specific to the manuscript.
   Runs the longitudinal models evaluated in the empirical simulation.
 
 - `process_sim_output.R`
-  Generates the figures and tables included in Section 5.X of the manuscript.
+  Generates the figures and tables included in Section 5.2 of the manuscript.
 
 - `data_analysis_blur.R`
-  Fits the model to the full HPS data set and produces the figures included in Section 5.X of the manuscript.
+  Fits the model to the full HPS data set and produces the figures included in Section 5.3 of the manuscript.
 
 ### `data/`
 Contains code for processing data, as well as the resulting processed data files.
