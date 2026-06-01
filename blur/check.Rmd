@@ -1,0 +1,595 @@
+> devtools::check()
+══ Documenting ══════════════════════════════════════════════════════════════════════════════
+ℹ Updating blur documentation
+ℹ Loading blur
+Writing ]8;;x-r-run:pkgload::dev_help('sipp')sipp.Rd]8;;
+Writing ]8;;x-r-run:pkgload::dev_help('predict.ulm')predict.ulm.Rd]8;;
+
+══ Building ═════════════════════════════════════════════════════════════════════════════════
+Setting env vars:
+• CFLAGS    : -Wall -pedantic -fdiagnostics-color=always
+• CXXFLAGS  : -Wall -pedantic -fdiagnostics-color=always
+• CXX11FLAGS: -Wall -pedantic -fdiagnostics-color=always
+• CXX14FLAGS: -Wall -pedantic -fdiagnostics-color=always
+• CXX17FLAGS: -Wall -pedantic -fdiagnostics-color=always
+• CXX20FLAGS: -Wall -pedantic -fdiagnostics-color=always
+── R CMD build ──────────────────────────────────────────────────────────────────────────────
+✔  checking for file ‘/home/d/Desktop/Mizzou/Research/blur/DESCRIPTION’ (426ms)
+─  preparing ‘blur’: (18.4s)
+✔  checking DESCRIPTION meta-information
+   Warning: /tmp/RtmpRlKXVy/Rbuild6082f295001a8/blur/man/census_table_2018.Rd:20: unexpected section header '\source'
+   Warning: /tmp/RtmpRlKXVy/Rbuild6082f295001a8/blur/man/census_table_2018.Rd:23: unexpected section header '\usage'
+   Warning: /tmp/RtmpRlKXVy/Rbuild6082f295001a8/blur/man/census_table_2018.Rd:26: unexpected section header '\description'
+   Warning: /tmp/RtmpRlKXVy/Rbuild6082f295001a8/blur/man/census_table_2018.Rd:29: unexpected section header '\keyword'
+   Warning: /tmp/RtmpRlKXVy/Rbuild6082f295001a8/blur/man/census_table_2018.Rd:30: unexpected END_OF_INPUT '
+   '
+─  installing the package to build vignettes
+✔  creating vignettes (23.8s)
+─  checking for LF line-endings in source and make files and shell scripts (823ms)
+─  checking for empty or unneeded directories
+   Warning: /tmp/RtmpRlKXVy/Rbuild6082f295001a8/blur/man/census_table_2018.Rd:20: unexpected section header '\source'
+   Warning: /tmp/RtmpRlKXVy/Rbuild6082f295001a8/blur/man/census_table_2018.Rd:23: unexpected section header '\usage'
+   Warning: /tmp/RtmpRlKXVy/Rbuild6082f295001a8/blur/man/census_table_2018.Rd:26: unexpected section header '\description'
+   Warning: /tmp/RtmpRlKXVy/Rbuild6082f295001a8/blur/man/census_table_2018.Rd:29: unexpected section header '\keyword'
+   Warning: /tmp/RtmpRlKXVy/Rbuild6082f295001a8/blur/man/census_table_2018.Rd:30: unexpected END_OF_INPUT '
+   '
+     NB: this package now depends on R (>= 4.1.0)
+     WARNING: Added dependency on R >= 4.1.0 because package code uses the
+     pipe |> or function shorthand \(...) syntax added in R 4.1.0.
+     File(s) using such syntax:
+       ‘ulm.R’
+─  building ‘blur_0.0.0.9000.tar.gz’
+   
+══ Checking ═════════════════════════════════════════════════════════════════════════════════
+Setting env vars:
+• _R_CHECK_CRAN_INCOMING_USE_ASPELL_           : TRUE
+• _R_CHECK_CRAN_INCOMING_REMOTE_               : FALSE
+• _R_CHECK_CRAN_INCOMING_                      : FALSE
+• _R_CHECK_FORCE_SUGGESTS_                     : FALSE
+• _R_CHECK_PACKAGES_USED_IGNORE_UNUSED_IMPORTS_: FALSE
+• NOT_CRAN                                     : true
+── R CMD check ──────────────────────────────────────────────────────────────────────────────
+─  using log directory ‘/tmp/RtmpHMSauK/file1f3a312fac1/blur.Rcheck’ (446ms)
+─  using R version 4.5.1 (2025-06-13)
+─  using platform: x86_64-pc-linux-gnu
+─  R was compiled by
+       gcc (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0
+       GNU Fortran (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0
+─  running under: Linux Mint 22
+─  using session charset: UTF-8
+─  using options ‘--no-manual --as-cran’ (2m 6.6s)
+✔  checking for file ‘blur/DESCRIPTION’
+─  this is package ‘blur’ version ‘0.0.0.9000’
+─  package encoding: UTF-8
+✔  checking package namespace information
+✔  checking package dependencies (1.2s)
+✔  checking if this is a source package
+✔  checking if there is a namespace
+✔  checking for executable files
+✔  checking for hidden files and directories
+✔  checking for portable file names
+✔  checking for sufficient/correct file permissions
+─  checking whether package ‘blur’ can be installed ... [33s/23s] WARNING (23.2s)
+   Found the following significant warnings:
+     Note: possible error in 'rinvgamma(n = 1, shape = a + ': unused arguments (shape = a + D/2, scale = b + t(eta[, 1]) %*% eta[, 1]/2) 
+     Note: possible error in 'rinvgamma(n = 1, shape = sigma2_eta_shape, ': unused arguments (shape = sigma2_eta_shape, scale = sigma2_eta_scale) 
+     Note: possible error in 'rinvgamma(n = 1, shape = 0.1 + ': unused arguments (shape = 0.1 + D/2, scale = 0.1 + 0.5 * t(eta[, 1]) %*% eta[, 1]) 
+     Note: possible error in 'rinvgamma(n = 1, shape = sigma2_shape, ': unused arguments (shape = sigma2_shape, scale = as.numeric(sigma2_scale)) 
+     Note: possible error in 'rmvnorm(nsamp, mean = tt$BU$mean, ': unused argument (sigma = as.matrix(tt$BU$Cov)) 
+     Warning: /tmp/RtmpHMSauK/file1f3a312fac1/blur.Rcheck/00_pkg_src/blur/man/census_table_2018.Rd:20: unexpected section header '\source'
+     Warning: /tmp/RtmpHMSauK/file1f3a312fac1/blur.Rcheck/00_pkg_src/blur/man/census_table_2018.Rd:23: unexpected section header '\usage'
+     Warning: /tmp/RtmpHMSauK/file1f3a312fac1/blur.Rcheck/00_pkg_src/blur/man/census_table_2018.Rd:26: unexpected section header '\description'
+     Warning: /tmp/RtmpHMSauK/file1f3a312fac1/blur.Rcheck/00_pkg_src/blur/man/census_table_2018.Rd:29: unexpected section header '\keyword'
+     Warning: /tmp/RtmpHMSauK/file1f3a312fac1/blur.Rcheck/00_pkg_src/blur/man/census_table_2018.Rd:30: unexpected END_OF_INPUT '
+   See ‘/tmp/RtmpHMSauK/file1f3a312fac1/blur.Rcheck/00install.out’ for details.
+   Information on the location(s) of code generating the ‘Note’s can be
+   obtained by re-running with environment variable R_KEEP_PKG_SOURCE set
+   to ‘yes’.
+─  checking installed package size ... INFO
+     installed size is 21.9Mb
+     sub-directories of 1Mb or more:
+       data  21.7Mb
+✔  checking package directory
+✔  checking for future file timestamps (356ms)
+✔  checking ‘build’ directory
+W  checking DESCRIPTION meta-information
+   Non-standard license specification:
+     `use_mit_license()`
+   Standardizable: FALSE
+   Warning: /tmp/RtmpHMSauK/file1f3a312fac1/blur.Rcheck/00_pkg_src/blur/man/census_table_2018.Rd:20: unexpected section header '\source'
+   Warning: /tmp/RtmpHMSauK/file1f3a312fac1/blur.Rcheck/00_pkg_src/blur/man/census_table_2018.Rd:23: unexpected section header '\usage'
+   Warning: /tmp/RtmpHMSauK/file1f3a312fac1/blur.Rcheck/00_pkg_src/blur/man/census_table_2018.Rd:26: unexpected section header '\description'
+   Warning: /tmp/RtmpHMSauK/file1f3a312fac1/blur.Rcheck/00_pkg_src/blur/man/census_table_2018.Rd:29: unexpected section header '\keyword'
+   Warning: /tmp/RtmpHMSauK/file1f3a312fac1/blur.Rcheck/00_pkg_src/blur/man/census_table_2018.Rd:30: unexpected END_OF_INPUT '
+   '
+N  checking top-level files
+   Non-standard files/directories found at top level:
+     ‘notes.txt’ ‘pu2018.csv’ ‘synth_tests.R’ ‘vignette_draft.R’
+✔  checking for left-over files
+✔  checking index information
+✔  checking package subdirectories (668ms)
+✔  checking code files for non-ASCII characters
+✔  checking R files for syntax errors
+✔  checking whether the package can be loaded (1s)
+✔  checking whether the package can be loaded with stated dependencies (920ms)
+✔  checking whether the package can be unloaded cleanly (874ms)
+✔  checking whether the namespace can be loaded with stated dependencies (938ms)
+✔  checking whether the namespace can be unloaded cleanly (951ms)
+✔  checking loading without being on the library search path (985ms)
+W  checking dependencies in R code (2s)
+   '::' or ':::' imports not declared from:
+     ‘MASS’ ‘bayesianVARs’
+✔  checking S3 generic/method consistency (1.1s)
+✔  checking replacement functions (878ms)
+✔  checking foreign function calls (1.1s)
+N  checking R code for possible problems (8.9s)
+   fit_AL_cs_mcmc: warning in rinvgamma(n = 1, a = hyperparams$a + 3 *
+     n/2, b = as.numeric(hyperparams$b + sum(weights * nu) + t(yCxi -
+     theta * nu) %*% (W/2) %*% (yCxi - theta * nu))): partial argument
+     match of 'a' to 'alpha'
+   fit_AL_cs_mcmc: warning in rinvgamma(n = 1, a = hyperparams$a + 3 *
+     n/2, b = as.numeric(hyperparams$b + sum(weights * nu) + t(yCxi -
+     theta * nu) %*% (W/2) %*% (yCxi - theta * nu))): partial argument
+     match of 'b' to 'beta'
+   fit_AL_cs_mcmc: warning in rinvgamma(n = 1, a = hyperparams$a + r/2, b
+     = hyperparams$b + crossprod(eta, eta)/2): partial argument match of
+     'a' to 'alpha'
+   fit_AL_cs_mcmc: warning in rinvgamma(n = 1, a = hyperparams$a + r/2, b
+     = hyperparams$b + crossprod(eta, eta)/2): partial argument match of
+     'b' to 'beta'
+   fit_ord_lon_mcmc: warning in rinvgamma(n = 1, a = a + r/2, b = b +
+     t(eta[, 1]) %*% eta[, 1]/2): partial argument match of 'a' to 'alpha'
+   fit_ord_lon_mcmc: warning in rinvgamma(n = 1, a = a + r/2, b = b +
+     t(eta[, 1]) %*% eta[, 1]/2): partial argument match of 'b' to 'beta'
+   fit_ord_lon_mcmc: warning in rinvgamma(n = 1, a = sigma2_eta_shape, b =
+     sigma2_eta_scale): partial argument match of 'a' to 'alpha'
+   fit_ord_lon_mcmc: warning in rinvgamma(n = 1, a = sigma2_eta_shape, b =
+     sigma2_eta_scale): partial argument match of 'b' to 'beta'
+   confint.ulm : <anonymous>: no visible global function definition for
+     ‘quantile’
+   fit_AL_cs_mcmc: no visible global function definition for ‘lm’
+   fit_AL_cs_mcmc: no visible global function definition for
+     ‘txtProgressBar’
+   fit_AL_cs_mcmc: no visible global function definition for
+     ‘setTxtProgressBar’
+   fit_AL_cs_vb: no visible global function definition for ‘lm’
+   fit_AL_cs_vb: no visible binding for global variable ‘y’
+   fit_bin_lon_mcmc: no visible global function definition for ‘%>%’
+   fit_bin_lon_mcmc: no visible global function definition for ‘glm’
+   fit_bin_lon_mcmc: no visible global function definition for
+     ‘as.formula’
+   fit_bin_lon_mcmc: no visible binding for global variable ‘pop_covars’
+   fit_bin_lon_mcmc: no visible binding for global variable ‘binomial’
+   fit_bin_lon_mcmc: no visible binding for global variable ‘HPS_pop_long’
+   fit_bin_lon_mcmc: no visible binding for global variable ‘coefficients’
+   fit_bin_lon_mcmc: no visible global function definition for ‘rmvn’
+   fit_bin_lon_mcmc: no visible global function definition for
+     ‘txtProgressBar’
+   fit_bin_lon_mcmc: possible error in rinvgamma(n = 1, shape = a + D/2,
+     scale = b + t(eta[, 1]) %*% eta[, 1]/2): unused arguments (shape = a
+     + D/2, scale = b + t(eta[, 1]) %*% eta[, 1]/2)
+   fit_bin_lon_mcmc: possible error in rinvgamma(n = 1, shape =
+     sigma2_eta_shape, scale = sigma2_eta_scale): unused arguments (shape
+     = sigma2_eta_shape, scale = sigma2_eta_scale)
+   fit_bin_lon_mcmc: no visible global function definition for ‘rtrunc’
+   fit_bin_lon_mcmc: no visible global function definition for ‘rnorm’
+   fit_bin_lon_mcmc: no visible global function definition for
+     ‘setTxtProgressBar’
+   fit_bin_lon_vb: no visible global function definition for
+     ‘model.matrix’
+   fit_bin_lon_vb: no visible global function definition for ‘pnorm’
+   fit_bin_lon_vb: no visible global function definition for ‘dnorm’
+   fit_bin_lon_vb: no visible global function definition for ‘plogis’
+   fit_binary_cs_mcmc: no visible global function definition for
+     ‘txtProgressBar’
+   fit_binary_cs_mcmc: no visible global function definition for ‘rgamma’
+   fit_binary_cs_mcmc: no visible global function definition for
+     ‘setTxtProgressBar’
+   fit_binary_cs_vb: no visible global function definition for ‘plogis’
+   fit_gauss_cs_mcmc: no visible global function definition for ‘rgamma’
+   fit_gauss_lon_mcmc: no visible global function definition for
+     ‘model.matrix’
+   fit_gauss_lon_mcmc: no visible global function definition for ‘rmvn’
+   fit_gauss_lon_mcmc: no visible global function definition for ‘rtrunc’
+   fit_gauss_lon_mcmc: possible error in rinvgamma(n = 1, shape =
+     sigma2_eta_shape, scale = sigma2_eta_scale): unused arguments (shape
+     = sigma2_eta_shape, scale = sigma2_eta_scale)
+   fit_gauss_lon_mcmc: possible error in rinvgamma(n = 1, shape = 0.1 +
+     D/2, scale = 0.1 + 0.5 * t(eta[, 1]) %*% eta[, 1]): unused arguments
+     (shape = 0.1 + D/2, scale = 0.1 + 0.5 * t(eta[, 1]) %*% eta[, 1])
+   fit_gauss_lon_mcmc: possible error in rinvgamma(n = 1, shape =
+     sigma2_shape, scale = as.numeric(sigma2_scale)): unused arguments
+     (shape = sigma2_shape, scale = as.numeric(sigma2_scale))
+   fit_gauss_lon_mcmc: no visible global function definition for ‘runif’
+   fit_gauss_lon_mcmc: no visible global function definition for ‘dnorm’
+   fit_gauss_lon_mcmc: no visible global function definition for ‘rnorm’
+   fit_mult_cs_vb: no visible global function definition for ‘PLMBvb’
+   fit_mult_cs_vb: possible error in rmvnorm(nsamp, mean = tt$BU$mean,
+     sigma = as.matrix(tt$BU$Cov)): unused argument (sigma =
+     as.matrix(tt$BU$Cov))
+   fit_mult_cs_vb: no visible global function definition for ‘plogis’
+   fit_mult_cs_vb: no visible binding for global variable ‘Stick’
+   fit_mult_lon_vb: no visible global function definition for
+     ‘fit_vb_btulm’
+   fit_ord_lon_mcmc: no visible global function definition for ‘rnorm’
+   fit_ord_lon_mcmc: no visible global function definition for
+     ‘txtProgressBar’
+   fit_ord_lon_mcmc: no visible global function definition for
+     ‘setTxtProgressBar’
+   fit_ord_lon_vb: no visible global function definition for ‘rnorm’
+   fit_ord_lon_vb: no visible global function definition for
+     ‘model.matrix’
+   fit_ord_lon_vb: no visible global function definition for ‘pnorm’
+   fit_ord_lon_vb: no visible global function definition for ‘dnorm’
+   fit_ordinal_cs_mcmc: no visible binding for global variable ‘n’
+   fit_ordinal_cs_mcmc: no visible global function definition for
+     ‘txtProgressBar’
+   fit_ordinal_cs_mcmc: no visible global function definition for
+     ‘setTxtProgressBar’
+   predict_binary_cs: no visible global function definition for ‘rbinom’
+   predict_binary_cs: no visible global function definition for ‘plogis’
+   predict_nominal_cs: no visible global function definition for ‘plogis’
+   predict_ordinal_cs: no visible global function definition for ‘plogis’
+   rmvnorm: no visible global function definition for ‘rnorm’
+   rmvnorm_prec: no visible global function definition for ‘rnorm’
+   sample_MVN: no visible global function definition for ‘rnorm’
+   summary.ulm: no visible global function definition for ‘coef’
+   summary.ulm: no visible global function definition for ‘confint’
+   validate_ulm: no visible binding for global variable ‘algorithm’
+   Undefined global functions or variables:
+     %>% HPS_pop_long PLMBvb Stick algorithm as.formula binomial coef
+     coefficients confint dnorm fit_vb_btulm glm lm model.matrix n plogis
+     pnorm pop_covars quantile rbinom rgamma rmvn rnorm rtrunc runif
+     setTxtProgressBar txtProgressBar y
+   Consider adding
+     importFrom("stats", "as.formula", "binomial", "coef", "coefficients",
+                "confint", "dnorm", "glm", "lm", "model.matrix", "plogis",
+                "pnorm", "quantile", "rbinom", "rgamma", "rnorm", "runif")
+     importFrom("utils", "setTxtProgressBar", "txtProgressBar")
+   to your NAMESPACE file.
+W  checking Rd files
+   prepare_Rd: ./man/census_table_2018.Rd:20: unexpected section header '\source'
+   prepare_Rd: ./man/census_table_2018.Rd:23: unexpected section header '\usage'
+   prepare_Rd: ./man/census_table_2018.Rd:26: unexpected section header '\description'
+   prepare_Rd: ./man/census_table_2018.Rd:29: unexpected section header '\keyword'
+   prepare_Rd: ./man/census_table_2018.Rd:30: unexpected END_OF_INPUT '
+   '
+   checkRd: (-1) census_table_2018.Rd:20-22: Lost braces
+       20 | \source{
+          |        ^
+   checkRd: (-1) census_table_2018.Rd:23-25: Lost braces
+       23 | \usage{
+          |       ^
+   checkRd: (-1) census_table_2018.Rd:26-28: Lost braces
+       26 | \description{
+          |             ^
+   checkRd: (-1) census_table_2018.Rd:29: Lost braces; missing escapes or markup?
+       29 | \keyword{datasets}
+          |         ^
+✔  checking Rd metadata
+✔  checking Rd line widths
+─  checking Rd cross-references ...Warning: /tmp/RtmpHMSauK/file1f3a312fac1/blur.Rcheck/00_pkg_src/blur/man/census_table_2018.Rd:20: unexpected section header '\source'
+   Warning: /tmp/RtmpHMSauK/file1f3a312fac1/blur.Rcheck/00_pkg_src/blur/man/census_table_2018.Rd:23: unexpected section header '\usage'
+   Warning: /tmp/RtmpHMSauK/file1f3a312fac1/blur.Rcheck/00_pkg_src/blur/man/census_table_2018.Rd:26: unexpected section header '\description'
+   Warning: /tmp/RtmpHMSauK/file1f3a312fac1/blur.Rcheck/00_pkg_src/blur/man/census_table_2018.Rd:29: unexpected section header '\keyword'
+   Warning: /tmp/RtmpHMSauK/file1f3a312fac1/blur.Rcheck/00_pkg_src/blur/man/census_table_2018.Rd:30: unexpected END_OF_INPUT '
+   '
+    OK
+W  checking for missing documentation entries (3.7s)
+   Undocumented code objects:
+     ‘acs2023’ ‘census_table’
+   Undocumented data sets:
+     ‘acs2023’ ‘census_table’
+   All user-level objects in a package should have documentation entries.
+   See chapter ‘Writing R documentation files’ in the ‘Writing R
+   Extensions’ manual.
+✔  checking for code/documentation mismatches (5.6s)
+W  checking Rd \usage sections
+   Undocumented arguments in Rd file 'coef.ulm.Rd'
+     ‘object’ ‘...’ ‘include_reff’
+   
+   Undocumented arguments in Rd file 'fit_AL_cs_mcmc.Rd'
+     ‘fix_sigma’
+   
+   Undocumented arguments in Rd file 'fit_AL_cs_vb.Rd'
+     ‘fix_sigma’
+   
+   Documented arguments not in \usage in Rd file 'fit_binary_cs_mcmc.Rd':
+     ‘sigma2_beta’
+   
+   Undocumented arguments in Rd file 'fit_ordinal_cs_mcmc.Rd'
+     ‘init_vals’ ‘hyperparams’
+   Documented arguments not in \usage in Rd file 'fit_ordinal_cs_mcmc.Rd':
+     ‘eta’ ‘gamma’ ‘sigma2_eta’ ‘a’ ‘b’ ‘sigma2_beta’ ‘sigma2_gamma’
+   
+   Undocumented arguments in Rd file 'fit_pl.Rd'
+     ‘priors’ ‘weights’ ‘initial_vals’ ‘response_type’ ‘timepoints’
+     ‘algorithm’ ‘longitudinal’
+   Documented arguments not in \usage in Rd file 'fit_pl.Rd':
+     ‘sigma2_beta’ ‘wgt’
+   
+   Undocumented arguments in Rd file 'predict.ulm.Rd'
+     ‘object’ ‘...’
+   
+   Undocumented arguments in Rd file 'summary.ulm.Rd'
+     ‘object’ ‘...’
+   
+   Undocumented arguments in Rd file 'ulm.Rd'
+     ‘longitudinal’ ‘epsilon’ ‘n_samples’ ‘tau’ ‘fix_sigma’
+   
+   Functions with \usage entries need to have the appropriate \alias
+   entries, and all their arguments documented.
+   The \usage entries must correspond to syntactically valid R code.
+   See chapter ‘Writing R documentation files’ in the ‘Writing R
+   Extensions’ manual.
+   S3 methods shown with full name in Rd file 'summary.ulm.Rd':
+     ‘summary.ulm’
+   
+   The \usage entries for S3 methods should use the \method markup and not
+   their full name.
+   See chapter ‘Writing R documentation files’ in the ‘Writing R
+   Extensions’ manual.
+N  checking Rd contents
+   Rd files without \description:
+     ‘census_table_2018.Rd’
+✔  checking for unstated dependencies in examples
+✔  checking contents of ‘data’ directory (8s)
+✔  checking data for non-ASCII characters (9.2s)
+W  checking LazyData
+     LazyData DB of 21.6 MB without LazyDataCompression set
+     See §1.1.6 of 'Writing R Extensions'
+✔  checking data for ASCII and uncompressed saves
+    WARNING
+   ‘qpdf’ is needed for checks on size reduction of PDFs
+✔  checking installed files from ‘inst/doc’
+✔  checking files in ‘vignettes’
+─  checking examples ... NONE
+✔  checking for unstated dependencies in vignettes (443ms)
+✔  checking package vignettes
+✔  checking re-building of vignette outputs (7.4s)
+✔  checking for non-standard things in the check directory
+✔  checking for detritus in the temp directory
+   
+   See
+     ‘/tmp/RtmpHMSauK/file1f3a312fac1/blur.Rcheck/00check.log’
+   for details.
+   
+── R CMD check results ───────────────────────────────────────────────── blur 0.0.0.9000 ────
+Duration: 5m 26.5s
+
+❯ checking whether package ‘blur’ can be installed ... [33s/23s] WARNING
+  See below...
+
+❯ checking DESCRIPTION meta-information ... WARNING
+  Non-standard license specification:
+    `use_mit_license()`
+  Standardizable: FALSE
+  Warning: /tmp/RtmpHMSauK/file1f3a312fac1/blur.Rcheck/00_pkg_src/blur/man/census_table_2018.Rd:20: unexpected section header '\source'
+  Warning: /tmp/RtmpHMSauK/file1f3a312fac1/blur.Rcheck/00_pkg_src/blur/man/census_table_2018.Rd:23: unexpected section header '\usage'
+  Warning: /tmp/RtmpHMSauK/file1f3a312fac1/blur.Rcheck/00_pkg_src/blur/man/census_table_2018.Rd:26: unexpected section header '\description'
+  Warning: /tmp/RtmpHMSauK/file1f3a312fac1/blur.Rcheck/00_pkg_src/blur/man/census_table_2018.Rd:29: unexpected section header '\keyword'
+  Warning: /tmp/RtmpHMSauK/file1f3a312fac1/blur.Rcheck/00_pkg_src/blur/man/census_table_2018.Rd:30: unexpected END_OF_INPUT '
+  '
+
+❯ checking dependencies in R code ... WARNING
+  '::' or ':::' imports not declared from:
+    ‘MASS’ ‘bayesianVARs’
+
+❯ checking Rd files ... WARNING
+  prepare_Rd: ./man/census_table_2018.Rd:20: unexpected section header '\source'
+  prepare_Rd: ./man/census_table_2018.Rd:23: unexpected section header '\usage'
+  prepare_Rd: ./man/census_table_2018.Rd:26: unexpected section header '\description'
+  prepare_Rd: ./man/census_table_2018.Rd:29: unexpected section header '\keyword'
+  prepare_Rd: ./man/census_table_2018.Rd:30: unexpected END_OF_INPUT '
+  '
+  checkRd: (-1) census_table_2018.Rd:20-22: Lost braces
+      20 | \source{
+         |        ^
+  checkRd: (-1) census_table_2018.Rd:23-25: Lost braces
+      23 | \usage{
+         |       ^
+  checkRd: (-1) census_table_2018.Rd:26-28: Lost braces
+      26 | \description{
+         |             ^
+  checkRd: (-1) census_table_2018.Rd:29: Lost braces; missing escapes or markup?
+      29 | \keyword{datasets}
+         |         ^
+
+❯ checking for missing documentation entries ... WARNING
+  Undocumented code objects:
+    ‘acs2023’ ‘census_table’
+  Undocumented data sets:
+    ‘acs2023’ ‘census_table’
+  All user-level objects in a package should have documentation entries.
+  See chapter ‘Writing R documentation files’ in the ‘Writing R
+  Extensions’ manual.
+
+❯ checking Rd \usage sections ... WARNING
+  Undocumented arguments in Rd file 'coef.ulm.Rd'
+    ‘object’ ‘...’ ‘include_reff’
+  
+  Undocumented arguments in Rd file 'fit_AL_cs_mcmc.Rd'
+    ‘fix_sigma’
+  
+  Undocumented arguments in Rd file 'fit_AL_cs_vb.Rd'
+    ‘fix_sigma’
+  
+  Documented arguments not in \usage in Rd file 'fit_binary_cs_mcmc.Rd':
+    ‘sigma2_beta’
+  
+  Undocumented arguments in Rd file 'fit_ordinal_cs_mcmc.Rd'
+    ‘init_vals’ ‘hyperparams’
+  Documented arguments not in \usage in Rd file 'fit_ordinal_cs_mcmc.Rd':
+    ‘eta’ ‘gamma’ ‘sigma2_eta’ ‘a’ ‘b’ ‘sigma2_beta’ ‘sigma2_gamma’
+  
+  Undocumented arguments in Rd file 'fit_pl.Rd'
+    ‘priors’ ‘weights’ ‘initial_vals’ ‘response_type’ ‘timepoints’
+    ‘algorithm’ ‘longitudinal’
+  Documented arguments not in \usage in Rd file 'fit_pl.Rd':
+    ‘sigma2_beta’ ‘wgt’
+  
+  Undocumented arguments in Rd file 'predict.ulm.Rd'
+    ‘object’ ‘...’
+  
+  Undocumented arguments in Rd file 'summary.ulm.Rd'
+    ‘object’ ‘...’
+  
+  Undocumented arguments in Rd file 'ulm.Rd'
+    ‘longitudinal’ ‘epsilon’ ‘n_samples’ ‘tau’ ‘fix_sigma’
+  
+  Functions with \usage entries need to have the appropriate \alias
+  entries, and all their arguments documented.
+  The \usage entries must correspond to syntactically valid R code.
+  See chapter ‘Writing R documentation files’ in the ‘Writing R
+  Extensions’ manual.
+  S3 methods shown with full name in Rd file 'summary.ulm.Rd':
+    ‘summary.ulm’
+  
+  The \usage entries for S3 methods should use the \method markup and not
+  their full name.
+  See chapter ‘Writing R documentation files’ in the ‘Writing R
+  Extensions’ manual.
+
+❯ checking LazyData ... WARNING
+    LazyData DB of 21.6 MB without LazyDataCompression set
+    See §1.1.6 of 'Writing R Extensions'
+
+❯ checking data for ASCII and uncompressed saves ... OK
+   WARNING
+  ‘qpdf’ is needed for checks on size reduction of PDFs
+
+❯ checking top-level files ... NOTE
+  Non-standard files/directories found at top level:
+    ‘notes.txt’ ‘pu2018.csv’ ‘synth_tests.R’ ‘vignette_draft.R’
+
+❯ checking R code for possible problems ... NOTE
+  fit_AL_cs_mcmc: warning in rinvgamma(n = 1, a = hyperparams$a + 3 *
+    n/2, b = as.numeric(hyperparams$b + sum(weights * nu) + t(yCxi -
+    theta * nu) %*% (W/2) %*% (yCxi - theta * nu))): partial argument
+    match of 'a' to 'alpha'
+  fit_AL_cs_mcmc: warning in rinvgamma(n = 1, a = hyperparams$a + 3 *
+    n/2, b = as.numeric(hyperparams$b + sum(weights * nu) + t(yCxi -
+    theta * nu) %*% (W/2) %*% (yCxi - theta * nu))): partial argument
+    match of 'b' to 'beta'
+  fit_AL_cs_mcmc: warning in rinvgamma(n = 1, a = hyperparams$a + r/2, b
+    = hyperparams$b + crossprod(eta, eta)/2): partial argument match of
+    'a' to 'alpha'
+  fit_AL_cs_mcmc: warning in rinvgamma(n = 1, a = hyperparams$a + r/2, b
+    = hyperparams$b + crossprod(eta, eta)/2): partial argument match of
+    'b' to 'beta'
+  fit_ord_lon_mcmc: warning in rinvgamma(n = 1, a = a + r/2, b = b +
+    t(eta[, 1]) %*% eta[, 1]/2): partial argument match of 'a' to 'alpha'
+  fit_ord_lon_mcmc: warning in rinvgamma(n = 1, a = a + r/2, b = b +
+    t(eta[, 1]) %*% eta[, 1]/2): partial argument match of 'b' to 'beta'
+  fit_ord_lon_mcmc: warning in rinvgamma(n = 1, a = sigma2_eta_shape, b =
+    sigma2_eta_scale): partial argument match of 'a' to 'alpha'
+  fit_ord_lon_mcmc: warning in rinvgamma(n = 1, a = sigma2_eta_shape, b =
+    sigma2_eta_scale): partial argument match of 'b' to 'beta'
+  confint.ulm : <anonymous>: no visible global function definition for
+    ‘quantile’
+  fit_AL_cs_mcmc: no visible global function definition for ‘lm’
+  fit_AL_cs_mcmc: no visible global function definition for
+    ‘txtProgressBar’
+  fit_AL_cs_mcmc: no visible global function definition for
+    ‘setTxtProgressBar’
+  fit_AL_cs_vb: no visible global function definition for ‘lm’
+  fit_AL_cs_vb: no visible binding for global variable ‘y’
+  fit_bin_lon_mcmc: no visible global function definition for ‘%>%’
+  fit_bin_lon_mcmc: no visible global function definition for ‘glm’
+  fit_bin_lon_mcmc: no visible global function definition for
+    ‘as.formula’
+  fit_bin_lon_mcmc: no visible binding for global variable ‘pop_covars’
+  fit_bin_lon_mcmc: no visible binding for global variable ‘binomial’
+  fit_bin_lon_mcmc: no visible binding for global variable ‘HPS_pop_long’
+  fit_bin_lon_mcmc: no visible binding for global variable ‘coefficients’
+  fit_bin_lon_mcmc: no visible global function definition for ‘rmvn’
+  fit_bin_lon_mcmc: no visible global function definition for
+    ‘txtProgressBar’
+  fit_bin_lon_mcmc: possible error in rinvgamma(n = 1, shape = a + D/2,
+    scale = b + t(eta[, 1]) %*% eta[, 1]/2): unused arguments (shape = a
+    + D/2, scale = b + t(eta[, 1]) %*% eta[, 1]/2)
+  fit_bin_lon_mcmc: possible error in rinvgamma(n = 1, shape =
+    sigma2_eta_shape, scale = sigma2_eta_scale): unused arguments (shape
+    = sigma2_eta_shape, scale = sigma2_eta_scale)
+  fit_bin_lon_mcmc: no visible global function definition for ‘rtrunc’
+  fit_bin_lon_mcmc: no visible global function definition for ‘rnorm’
+  fit_bin_lon_mcmc: no visible global function definition for
+    ‘setTxtProgressBar’
+  fit_bin_lon_vb: no visible global function definition for
+    ‘model.matrix’
+  fit_bin_lon_vb: no visible global function definition for ‘pnorm’
+  fit_bin_lon_vb: no visible global function definition for ‘dnorm’
+  fit_bin_lon_vb: no visible global function definition for ‘plogis’
+  fit_binary_cs_mcmc: no visible global function definition for
+    ‘txtProgressBar’
+  fit_binary_cs_mcmc: no visible global function definition for ‘rgamma’
+  fit_binary_cs_mcmc: no visible global function definition for
+    ‘setTxtProgressBar’
+  fit_binary_cs_vb: no visible global function definition for ‘plogis’
+  fit_gauss_cs_mcmc: no visible global function definition for ‘rgamma’
+  fit_gauss_lon_mcmc: no visible global function definition for
+    ‘model.matrix’
+  fit_gauss_lon_mcmc: no visible global function definition for ‘rmvn’
+  fit_gauss_lon_mcmc: no visible global function definition for ‘rtrunc’
+  fit_gauss_lon_mcmc: possible error in rinvgamma(n = 1, shape =
+    sigma2_eta_shape, scale = sigma2_eta_scale): unused arguments (shape
+    = sigma2_eta_shape, scale = sigma2_eta_scale)
+  fit_gauss_lon_mcmc: possible error in rinvgamma(n = 1, shape = 0.1 +
+    D/2, scale = 0.1 + 0.5 * t(eta[, 1]) %*% eta[, 1]): unused arguments
+    (shape = 0.1 + D/2, scale = 0.1 + 0.5 * t(eta[, 1]) %*% eta[, 1])
+  fit_gauss_lon_mcmc: possible error in rinvgamma(n = 1, shape =
+    sigma2_shape, scale = as.numeric(sigma2_scale)): unused arguments
+    (shape = sigma2_shape, scale = as.numeric(sigma2_scale))
+  fit_gauss_lon_mcmc: no visible global function definition for ‘runif’
+  fit_gauss_lon_mcmc: no visible global function definition for ‘dnorm’
+  fit_gauss_lon_mcmc: no visible global function definition for ‘rnorm’
+  fit_mult_cs_vb: no visible global function definition for ‘PLMBvb’
+  fit_mult_cs_vb: possible error in rmvnorm(nsamp, mean = tt$BU$mean,
+    sigma = as.matrix(tt$BU$Cov)): unused argument (sigma =
+    as.matrix(tt$BU$Cov))
+  fit_mult_cs_vb: no visible global function definition for ‘plogis’
+  fit_mult_cs_vb: no visible binding for global variable ‘Stick’
+  fit_mult_lon_vb: no visible global function definition for
+    ‘fit_vb_btulm’
+  fit_ord_lon_mcmc: no visible global function definition for ‘rnorm’
+  fit_ord_lon_mcmc: no visible global function definition for
+    ‘txtProgressBar’
+  fit_ord_lon_mcmc: no visible global function definition for
+    ‘setTxtProgressBar’
+  fit_ord_lon_vb: no visible global function definition for ‘rnorm’
+  fit_ord_lon_vb: no visible global function definition for
+    ‘model.matrix’
+  fit_ord_lon_vb: no visible global function definition for ‘pnorm’
+  fit_ord_lon_vb: no visible global function definition for ‘dnorm’
+  fit_ordinal_cs_mcmc: no visible binding for global variable ‘n’
+  fit_ordinal_cs_mcmc: no visible global function definition for
+    ‘txtProgressBar’
+  fit_ordinal_cs_mcmc: no visible global function definition for
+    ‘setTxtProgressBar’
+  predict_binary_cs: no visible global function definition for ‘rbinom’
+  predict_binary_cs: no visible global function definition for ‘plogis’
+  predict_nominal_cs: no visible global function definition for ‘plogis’
+  predict_ordinal_cs: no visible global function definition for ‘plogis’
+  rmvnorm: no visible global function definition for ‘rnorm’
+  rmvnorm_prec: no visible global function definition for ‘rnorm’
+  sample_MVN: no visible global function definition for ‘rnorm’
+  summary.ulm: no visible global function definition for ‘coef’
+  summary.ulm: no visible global function definition for ‘confint’
+  validate_ulm: no visible binding for global variable ‘algorithm’
+  Undefined global functions or variables:
+    %>% HPS_pop_long PLMBvb Stick algorithm as.formula binomial coef
+    coefficients confint dnorm fit_vb_btulm glm lm model.matrix n plogis
+    pnorm pop_covars quantile rbinom rgamma rmvn rnorm rtrunc runif
+    setTxtProgressBar txtProgressBar y
+  Consider adding
+    importFrom("stats", "as.formula", "binomial", "coef", "coefficients",
+               "confint", "dnorm", "glm", "lm", "model.matrix", "plogis",
+               "pnorm", "quantile", "rbinom", "rgamma", "rnorm", "runif")
+    importFrom("utils", "setTxtProgressBar", "txtProgressBar")
+  to your NAMESPACE file.
+
+❯ checking Rd contents ... NOTE
+  Rd files without \description:
+    ‘census_table_2018.Rd’
+
+0 errors ✔ | 8 warnings ✖ | 3 notes ✖
