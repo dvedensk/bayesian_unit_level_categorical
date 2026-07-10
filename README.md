@@ -42,7 +42,7 @@ Contains code for processing data, as well as the resulting processed data files
 
 
 ### Note on dataset
-The processed data are available as `HPS_empirical_pop_df_GAD2.RData'.
+The processed data are available as `HPS_empirical_pop_df_GAD2.RData`.
 The raw data are too large to be included directly but can be downloaded from `census.gov` with the set of bash commands below then processed with `generate_GAD2_pop.R`.
 
 ```
