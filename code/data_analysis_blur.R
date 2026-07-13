@@ -188,29 +188,10 @@ vb_no_prev_pp <- agg_predict(vb_out_no_prev,
                              K=K)
 
 save(vb_no_prev_pp, file=file.path(output_dir, "data_analysis_vb_noprev_pp.RData"))
-#load(file.path(output_dir, "data_analysis_model_output_oldbf.RData"))
-
-## mcmc_out <-  ulm(Y=Y,
-##               X=X,
-##               Psi=Psi,
-##               weights=HPS_df_long$SCALE_WEIGHT,
-##               n_samples=nsamp,
-##               n_iter=n_iter,
-##               n_burn=n_burn,
-##               response_type="ordinal",
-##               algorithm="MCMC",
-##               timepoints=HPS_df_long$WEEK,
-##               prev_covar=HPS_df_long$COVAR.NEW,
-##               longitudinal=TRUE)
-## save(mcmc_out, file=file.path(output_dir, "data_analysis_mcmc_output.RData"))
 
 betas <- t(vb_out$posteriors$beta)
 etas <- vb_out$posteriors$eta
 gammas <- t(vb_out$posteriors$gamma)
-
-#betas <- t(mcmc_out$posteriors$beta)
-#etas <- mcmc_out$posteriors$eta
-#gammas <- t(mcmc_out$posteriors$gamma)
 
 ##posterior predictions
 n_Z <- n_weeks + K*(n_weeks-1) #width of Z before KR product
