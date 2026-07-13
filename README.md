@@ -2,6 +2,9 @@
 
 This repository contains code associated with **"Bayesian Unit-level Modeling of Categorical Survey Data with a Longitudinal Design"** by **Vedensky, Parker, and Holan**.
 
+## Data availability
+We have made the large binary files necessary to run the code available on [SharePoint](https://1sfu-my.sharepoint.com/:f:/g/personal/dvedensk_sfu_ca/IgDnYtsE64YaRIhkjgq_W-lWAQit4L037FI_mt2TDjHSIGU?e=iSzO05). The `ordinal/` directory should be placed under `data`. The file `data/ordinal/HPS_empirical_pop_df_GAD2.RData` contains the processed HPS sample, which is used in the data analysis and as the empirical population that is subsampled in the simulation. The file `data/ordinal/empirical_samples_GAD2.RData` contains the subsamples for the simulation.
+
 ## Repository Structure
 
 ### `blur/`
