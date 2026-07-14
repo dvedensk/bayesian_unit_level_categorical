@@ -9,7 +9,7 @@ This repository contains code associated with **"Bayesian Unit-level Modeling of
 3. Run `Rscript data/generate_samples.R` to take subsamples of the HPS that are used in the simulation study.
 4. Run `Rscript code/cross_sectional_sim_blur.R` to run the simulation for the cross-sectional models and `Rscript code/longitudinal_sim_blur.R` for the longitudinal models. If you want to quickly check that everything will run, set Nsim, n_mcmc, and n_burn to low values in both files. (The manuscript takes n_mcmc=2000, n_burn=500, Nsim=100, which can be time-consuming.)
 5. Run `Rscript code/process_sim_output.R` to reproduce the figures and tables corresponding to the simulation study that appear in the manuscript.
-6. Run `Rscript code/data_analysis_blur.R` to get the direct estimates and model predictions for the full data analysis. This file also produces all of the figures that appear in the data analysis section of the manuscript. For a quick check that everything will run, set `nsamp` to a low value. (The manuscript uses nsamp=1000.)
+6. Run `Rscript code/data_analysis_blur.R` to get the direct estimates and model predictions for the full data analysis. This file also produces all of the figures that appear in the data analysis section of the manuscript. For a quick check that everything will run, you can set `nsamp` and `epsilon` to a low value, say <100 and .1 respectively. (The manuscript uses nsamp=1000 and epsilon=.001.)
 
 ## Repository Structure
 
