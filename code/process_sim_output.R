@@ -5,6 +5,10 @@ library(ggforce)
 
 data_dir <- here::here("data", "ordinal")
 output_dir <- file.path("output", "GAD2", "empirical_sim")
+if (!dir.exists(output_dir)) {
+  dir.create(output_dir, recursive = TRUE)
+}
+
 load(here::here(data_dir, "empirical_samples_GAD2.RData"))
 
 int_score <- function(Q, L, U, alpha){
@@ -122,6 +126,8 @@ compare_df %>%
   theme_bw(base_size = 30)
 
 ggsave(file.path(output_dir, "log_MSE_time_series_plot.pdf"),
+       width=48,
+       height=36,
        limitsize=FALSE)
 
 plot_df <- compare_df %>%

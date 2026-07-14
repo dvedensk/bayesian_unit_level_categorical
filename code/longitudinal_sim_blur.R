@@ -17,6 +17,11 @@ source("code/helper_functions.R")
 ##########################
 set.seed(555)
 
+out_dir <- here::here("results", "GAD2", "longitudinal")
+if (!dir.exists(out_dir)) {
+  dir.create(out_dir, recursive = TRUE)
+}
+
 data_dir <- here::here("data", "ordinal")
 load(here::here(data_dir, "empirical_samples_GAD2.RData"))
 load(here::here("data", "unscaled_basis_functions.RData"))
@@ -47,7 +52,7 @@ numCores <- 10
 cl<-makeCluster(numCores, type="FORK", outfile="") 
 registerDoParallel(cl)
 
-sim_results <-foreach(i=1:Nsim,
+lon_fit <- foreach(i=1:Nsim,
                       .combine="rbind",
                       .verbose=TRUE,
                       .packages=c('dplyr')) %dopar% {
@@ -124,8 +129,12 @@ sim_results <-foreach(i=1:Nsim,
 
   results_df <- rbind(mcmc_pp, vb_pp, svy_dir_est)
   results_df$sim_num <- i
-  save(results_df, 
-       file=here::here("results", "GAD2", "longitudinal", paste0(i,".RData")))
+
+  save(
+    results_df,
+    file = file.path(out_dir, paste0(i, ".RData"))
+  )
+
   return(results_df)
 }
 stopCluster(cl)

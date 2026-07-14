@@ -17,6 +17,11 @@ source("code/helper_functions.R")
 ##########################
 set.seed(555)
 
+out_dir <- here::here("results", "GAD2", "cross_sectional")
+if (!dir.exists(out_dir)) {
+  dir.create(out_dir, recursive = TRUE)
+}
+
 data_dir <- here::here("data", "ordinal")
 load(here::here(data_dir, "empirical_samples_GAD2.RData"))
 load(here::here("data", "unscaled_basis_functions.RData"))
@@ -123,8 +128,12 @@ cs_fit <-foreach(i=1:Nsim, .combine="rbind", .verbose=TRUE, .packages=c('dplyr')
     results_df <- rbind(results_df, week_out)
   }
   results_df$sim_num <- i
-  save(results_df, 
-       file=here::here("results","GAD2","cross_sectional",paste0(i,".RData")))
+
+  save(
+    results_df,
+    file = file.path(out_dir, paste0(i, ".RData"))
+  )
+
   return(results_df)
 }
 
