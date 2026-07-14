@@ -40,12 +40,12 @@ population_counts_by_time <- HPS_pop_long %>%
     select(N) %>%
     unlist()
 
-n_mcmc <- 600#2000
+n_mcmc <- 2000
 n_burn <- 500
 nsamp <- n_mcmc - n_burn
 
 #Parallelization parameters 
-numCores <- 5#10
+numCores <- 10
 cl<-makeCluster(numCores, type="FORK", outfile="") 
 registerDoParallel(cl)
 
