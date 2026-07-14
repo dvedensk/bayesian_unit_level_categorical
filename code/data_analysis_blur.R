@@ -14,6 +14,7 @@ library(readr)
 library(tibble)
 library(ggpattern)
 library(viridis)
+library(ggrastr)
 source("code/helper_functions.R")
 devtools::load_all("blur/")
 
@@ -60,7 +61,7 @@ if(file.exists(direst_file)) {
                          rho=0.5,
                          repweights = "PWEIGHT[1-9]+")
 
-  direst_props_by_area <- svyby(~RESPONSE, by=~AREA + WEEK,# + COVAR.1 + COVAR.2 + COVAR.3,
+  direst_props_by_area <- svyby(~RESPONSE, by=~AREA + WEEK,
                             design=hps_svy, FUN=svymean)
   rownames(direst_props_by_area)  <- c()
 
@@ -148,6 +149,7 @@ p <- ncol(popX)
 #need to swap RACEASIAN and RACEOTHER to match betas from model
 popX <- popX[,c(1:(p-2), p, (p-1))]
 
+print("Running VB with longitudinal structure")
 vb_out <-  ulm(Y=Y,
                X=X,
                Psi=Psi,
@@ -159,8 +161,9 @@ vb_out <-  ulm(Y=Y,
                timepoints=HPS_df_long$WEEK,
                prev_covar=HPS_df_long$COVAR.NEW,
                longitudinal=TRUE)
-save(vb_out, file=file.path(output_dir, "data_analysis_vb_output_newer_test.RData"))
+save(vb_out, file=file.path(output_dir, "data_analysis_vb_output_longitudinal.RData"))
 
+print("Running VB without longitudinal structure")
 vb_out_no_prev <-  ulm(Y=Y,
                        X=X,
                        Psi=Psi,
@@ -171,12 +174,13 @@ vb_out_no_prev <-  ulm(Y=Y,
                        algorithm="VB",
                        timepoints=HPS_df_long$WEEK,
                        longitudinal=TRUE)
-save(vb_out_no_prev, file=file.path(output_dir, "data_analysis_vb_output_noprev.RData"))
+save(vb_out_no_prev, file=file.path(output_dir, "data_analysis_vb_output_nonlongitudinal.RData"))
 
 popPsi_rep <- Matrix(basis_funcs[census.rep$AREA,])
 names(popPsi_rep) <- c()
 popX_rep <- Matrix(model.matrix(~SEX+AGE_CAT+RACE,data=census.rep))[,-1]
 
+print("Running posterior predictions for non-longitudinal model")
 vb_no_prev_pp <- agg_predict(vb_out_no_prev,
                              predX=popX_rep,
                              predPsi=popPsi_rep,
@@ -186,14 +190,14 @@ vb_no_prev_pp <- agg_predict(vb_out_no_prev,
                              grouping_vars=c("WEEK", "AREA", "SEX", "AGE_CAT", "RACE"), 
                              pop_df=census.rep,
                              K=K)
-
-save(vb_no_prev_pp, file=file.path(output_dir, "data_analysis_vb_noprev_pp.RData"))
+save(vb_no_prev_pp, file=file.path(output_dir, "data_analysis_vb_nonlongitudinal_pp.RData"))
 
 betas <- t(vb_out$posteriors$beta)
 etas <- vb_out$posteriors$eta
 gammas <- t(vb_out$posteriors$gamma)
 
-##posterior predictions
+##posterior predictions for longitudinal model
+print("Running posterior predictions for longitudinal model")
 n_Z <- n_weeks + K*(n_weeks-1) #width of Z before KR product
 n_gammas <- (K-1)*n_Z
 gamma_id2 <- c()
@@ -354,8 +358,9 @@ sample_size_df <-
 sample_size_df %>%
     mutate(RESPONSE=as.factor(RESPONSE)) %>%
     ggplot() +
-    geom_point(aes(x=sample_size, y=blur_point_est/point_est,
-                   alpha=.3)) +
+    rasterise(geom_point(aes(x=sample_size, y=blur_point_est/point_est,
+                             alpha=.3)),
+              dpi=600) +
     geom_abline(aes(slope=0, intercept=1))+# , color="red") +
     guides(alpha="none") + 
     labs(x="Sample size", y="Ratio of model est. to dir. est.") +
@@ -388,7 +393,8 @@ direst_finegrained_long %>%
                     "COVAR.3"="RACE")) %>%
     filter(direst_se > 0, !is.na(direst_se)) %>%
     ggplot() +
-    geom_point(aes(x=model_se, y=direst_se), size=2, alpha=1) +
+    rasterise(geom_point(aes(x=model_se, y=direst_se), size=2, alpha=1),
+              dpi=600) +
     geom_abline(aes(intercept=0, slope=1)) +
     theme_bw(base_size=35) +
     theme(aspect.ratio=.5) +
@@ -401,7 +407,7 @@ ggsave(file.path(output_dir, "SE_compare.pdf"))
 # Figure 5) same plot as 4 for VB estimates
 plot_df <- filter(blur_preds, SEX=="MALE", AGE_CAT=="(35,40]", RACE=="Asian", CATEGORY==1)
 make_areal_plot_model(plot_df=plot_df,
-                      filepath=file.path(output_dir, "TEST_VB_areal_estimates_over_time.pdf"))
+                      filepath=file.path(output_dir, "VB_areal_estimates_over_time.pdf"))
 
 # Figure 6) plot same subdemographic, but trajectories for each category by census division
 blur_preds$abbr <-  state.abb[match(blur_preds$AREA, state.name)]
@@ -475,7 +481,7 @@ design <- "
   #GG#
 "
 
-ggplot(data=plot_df, mapping = aes(x=WEEK, y=prop)) +
+p <- ggplot(data=plot_df, mapping = aes(x=WEEK, y=prop)) +
     geom_line(mapping=aes(group=grouping_var, color=AREA, linetype=SEX)) +
     geom_point(aes(color=AREA, shape=SEX), size=2.5) +
     scale_x_continuous(breaks=integer_breaks) +
@@ -502,6 +508,7 @@ ggplot(data=plot_df, mapping = aes(x=WEEK, y=prop)) +
     facet_manual(~CATEGORY, design = design, scales="free_y")
 
 ggsave(file.path(output_dir, "sex_comparison_new_england.pdf"),
+       p,
        width=48,
        height=36,
        limitsize=FALSE)
@@ -542,6 +549,9 @@ se_compare_df <-  direst_finegrained_long %>%
 #count percent of domains where model SE was not lower than DE SE
 sum(se_compare_df$direst_se <= se_compare_df$model_se)/nrow(se_compare_df)
 
+plot_df <- ungroup(plot_df)
+plot_df$grouping_var <- paste0(plot_df$AREA, plot_df$SEX)
+
 vb_no_prev_pp <- mutate(vb_no_prev_pp, CATEGORY=CATEGORY-1)
 
 prev_no_prev_joined_df <- blur_preds %>%
@@ -558,9 +568,11 @@ prev_no_prev_joined_df <- blur_preds %>%
                     "RACE"))
 
 # compare model std err with full model and noprev
-prev_no_prev_joined_df %>%
+p <- prev_no_prev_joined_df %>%
     ggplot() +
-    geom_point(aes(x=prev_se, y=noprev_se), size=2, alpha=.6) +
+    rasterise(geom_point(aes(x=prev_se, y=noprev_se),
+                         size=2, alpha=.6),
+              dpi=300) +
     geom_abline(aes(intercept=0, slope=1)) +
     theme_bw(base_size=35) +
     theme(aspect.ratio=.5) +
@@ -569,19 +581,30 @@ prev_no_prev_joined_df %>%
     ylab("No previous response model estimate standard error")+
     facet_wrap(~CATEGORY)
 
-ggsave(file.path(output_dir, "prev_noprev_se_comparison.pdf"))
+ggsave(file.path(output_dir, "prev_noprev_se_comparison.pdf"),
+       p,
+       width=48,
+       height=36,
+       limitsize=FALSE)
+
 
 # compare model std err with full model and noprev
-prev_no_prev_joined_df %>%
+p <- prev_no_prev_joined_df %>%
+    mutate(CATEGORY=factor(CATEGORY)) %>%
     ggplot() +
-    geom_point(aes(x=prev_est, y=noprev_est),
-               size=2, alpha=.6) +
+    rasterise(geom_point(aes(x=prev_est, y=noprev_est, color=CATEGORY),
+                         size=2, alpha=.6),
+              dpi=300) +
     geom_abline(aes(intercept=0, slope=1)) +
+    ggthemes::scale_color_colorblind() +
     theme_bw(base_size=35) +
     theme(aspect.ratio=.5) +
     theme(strip.text = element_text(size = 20)) +
     xlab("Full model point estimate") +
-    ylab("No previous response model point estimate") +
-    facet_wrap(~CATEGORY)
+    ylab("No previous response model point estimate") 
 
-ggsave(file.path(output_dir, "prev_noprev_point_est_comparison.pdf"))
+ggsave(file.path(output_dir, "prev_noprev_point_est_comparison.pdf"),
+       p,
+       width=48,
+       height=36,
+       limitsize=FALSE)
