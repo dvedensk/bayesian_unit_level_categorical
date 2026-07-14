@@ -360,14 +360,17 @@ sample_size_df %>%
     ggplot() +
     rasterise(geom_point(aes(x=sample_size, y=blur_point_est/point_est,
                              alpha=.3)),
-              dpi=600) +
+              dpi=300) +
     geom_abline(aes(slope=0, intercept=1))+# , color="red") +
     guides(alpha="none") + 
     labs(x="Sample size", y="Ratio of model est. to dir. est.") +
     ylim(c(0, 10)) +
     theme_bw(base_size=30)
 
-ggsave(file.path(output_dir, "point_est_comparison.pdf"))#,
+ggsave(file.path(output_dir, "point_est_comparison.pdf"),
+       width=48,
+       height=36,
+       limitsize=FALSE)
 
 # Figure 3) plot direct estimates by state, faceted by week
 plot_df <- direst_finegrained_long %>%
@@ -394,7 +397,7 @@ direst_finegrained_long %>%
     filter(direst_se > 0, !is.na(direst_se)) %>%
     ggplot() +
     rasterise(geom_point(aes(x=model_se, y=direst_se), size=2, alpha=1),
-              dpi=600) +
+              dpi=300) +
     geom_abline(aes(intercept=0, slope=1)) +
     theme_bw(base_size=35) +
     theme(aspect.ratio=.5) +
@@ -402,7 +405,10 @@ direst_finegrained_long %>%
     xlab("Model estimate standard error") +
     ylab("Direct estimate standard error")
 
-ggsave(file.path(output_dir, "SE_compare.pdf"))
+ggsave(file.path(output_dir, "SE_compare.pdf"),
+       width=48,
+       height=36,
+       limitsize=FALSE)
 
 # Figure 5) same plot as 4 for VB estimates
 plot_df <- filter(blur_preds, SEX=="MALE", AGE_CAT=="(35,40]", RACE=="Asian", CATEGORY==1)
