@@ -5,10 +5,11 @@ This repository contains code associated with **"Bayesian Unit-level Modeling of
 ## Reproducing analysis from the manuscript
 
 1. From the top-level directory of this repository, run `Rscript data/download_census_files.R` to download the raw HPS data from <census.gov> and extract the data files and replicate weight files.
-2. Run `Rscript data/generate_samples.R` to take subsamples of the HPS that are used in the simulation study.
-3. Run `Rscript code/cross_sectional_sim_blur.R` to run the simulation for the cross-sectional models and `Rscript code/longitudinal_sim_blur.R` for the longitudinal models. If you want to quickly check that everything will run, set Nsim, n_mcmc, and n_burn to low values in both files. (The manuscript takes n_mcmc=2000, n_burn=500, Nsim=100, which can be time-consuming.)
-4. Run `Rscript code/process_sim_output.R` to reproduce the figures and tables corresponding to the simulation study that appear in the manuscript.
-5. Run `Rscript code/data_analysis_blur.R` to get the direct estimates and model predictions for the full data analysis. This file also produces all of the figures that appear in the data analysis section of the manuscript. For a quick check that everything will run, set `nsamp` to a low value. (The manuscript uses nsamp=1000.)
+2. Optionally run `Rscript data/generate_GAD2_pop.R` to process the HPS files downloaded in step 1 and to produce `data/ordinal/HPS_empirical_pop_df_GAD2.RData`. However, this file is already included in the repository.
+3. Run `Rscript data/generate_samples.R` to take subsamples of the HPS that are used in the simulation study.
+4. Run `Rscript code/cross_sectional_sim_blur.R` to run the simulation for the cross-sectional models and `Rscript code/longitudinal_sim_blur.R` for the longitudinal models. If you want to quickly check that everything will run, set Nsim, n_mcmc, and n_burn to low values in both files. (The manuscript takes n_mcmc=2000, n_burn=500, Nsim=100, which can be time-consuming.)
+5. Run `Rscript code/process_sim_output.R` to reproduce the figures and tables corresponding to the simulation study that appear in the manuscript.
+6. Run `Rscript code/data_analysis_blur.R` to get the direct estimates and model predictions for the full data analysis. This file also produces all of the figures that appear in the data analysis section of the manuscript. For a quick check that everything will run, set `nsamp` to a low value. (The manuscript uses nsamp=1000.)
 
 ## Repository Structure
 
@@ -55,6 +56,7 @@ Contains code for processing data, as well as the resulting processed data files
 ### Note on dataset
 The processed data are available as `data/ordinal/HPS_empirical_pop_df_GAD2.RData`.
 We have made the subsamples of this file needed for the simulation available on [SharePoint](https://1sfu-my.sharepoint.com/:f:/g/personal/dvedensk_sfu_ca/IgDnYtsE64YaRIhkjgq_W-lWAQit4L037FI_mt2TDjHSIGU?e=iSzO05).
+The file `data/census_table.csv` was obtained from the Census Population Estimate program: https://www2.census.gov/programs-surveys/popest/datasets/2020-2021/state/asrh/sc-est2021-alldata6.csv.
 The raw HPS data are too large to be included directly but can be downloaded from `census.gov` with the set of bash commands below then processed with `generate_GAD2_pop.R`.
 
 ```
