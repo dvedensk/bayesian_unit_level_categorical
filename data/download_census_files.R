@@ -1,4 +1,4 @@
-dest_dir <- "data/HPS_PUFs"
+dest_dir <- file.path("data", "HPS_PUFs")
 dir.create(dest_dir, recursive = TRUE, showWarnings = FALSE)
 
 weeks <- 1:12
