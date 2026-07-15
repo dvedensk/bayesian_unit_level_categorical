@@ -9,8 +9,11 @@ library(mvtnorm)
 library(survey)
 library(mase)
 
-devtools::load_all("blur/")
-source("code/helper_functions.R")
+
+here::i_am("code/longitudinal_sim_blur.R")
+
+devtools::load_all(here::here("blur"))
+source(here::here("code", "helper_functions.R"))
 
 ##########################
 ### Simulation Settings ##

@@ -9,8 +9,10 @@ library(mvtnorm)
 library(survey)
 library(mase)
 
-devtools::load_all("blur/")
-source("code/helper_functions.R")
+here::i_am("code/cross_sectional_sim_blur.R")
+
+devtools::load_all(here::here("blur"))
+source(here::here("code", "helper_functions.R"))
 
 ##########################
 ### Simulation Settings ##
@@ -18,12 +20,10 @@ source("code/helper_functions.R")
 set.seed(555)
 
 out_dir <- here::here("results", "GAD2", "cross_sectional")
-if (!dir.exists(out_dir)) {
-  dir.create(out_dir, recursive = TRUE)
-}
+dir.create(out_dir, recursive = TRUE, showWarnings = FALSE)
 
 data_dir <- here::here("data", "ordinal")
-load(here::here(data_dir, "empirical_samples_GAD2.RData"))
+load(file.path(data_dir, "empirical_samples_GAD2.RData"))
 load(here::here("data", "unscaled_basis_functions.RData"))
 Nsim <- length(samples)
 
