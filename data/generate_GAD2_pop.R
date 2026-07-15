@@ -98,4 +98,5 @@ HPS_df_wide <- HPS_df_wide %>% left_join(HPS_df_long,
                                select(-RESPONSE_NUMBER)
 
 save(HPS_df_long, HPS_df_wide,
-         file=paste0(data_dir, "HPS_empirical_pop_df_GAD2.RData"))
+         file=file.path(data_dir, "HPS_empirical_pop_df_GAD2.RData"))
+
