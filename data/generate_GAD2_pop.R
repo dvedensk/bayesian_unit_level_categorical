@@ -6,7 +6,9 @@ library(dplyr)
 response_type <- "ordinal"
 type <- "simulation"
 
-data_dir <- paste0("data/",response_type,"/")
+data_dir <- file.path("data", response_type)
+dir.create(dest_dir, recursive = TRUE, showWarnings = FALSE)
+
 #Data can be downloaded with a command like e.g.
 # for i in {1..9}; do wget https://www2.census.gov/programs-surveys/demo/datasets/hhp/2020/wk$i/HPS_Week0$i'_PUF_CSV.zip'; done
 # unfortunately inconvenient that they are inconsistent about leading zeros, so handle 10-12 separately.
